@@ -39,7 +39,14 @@ GET     /data/safeEnvProperty       controllers.SensitiveDataExposureController.
 GET     /data/safeUntainted         controllers.SensitiveDataExposureController.safeUntainted(value:String)
 GET     /data/safeNoSensitiveData   controllers.SensitiveDataExposureController.safeNoSensitiveData(value:String)
 
-GET     /cookie/insecureCookie      controllers.InsecureCookieController.insecureCookie()
+GET     /cookie/insecure            controllers.CookieFlagsController.insecureCookie()
+GET     /cookie/multInsecure        controllers.CookieFlagsController.multipleInsecureCookies()
+GET     /cookie/multSecure          controllers.CookieFlagsController.multipleSecureCookies()
+GET     /cookie/safeSecure          controllers.CookieFlagsController.safeSecureCookie()
+GET     /cookie/nonHttpOnly         controllers.CookieFlagsController.nonHttpOnlyCookie()
+GET     /cookie/multNonHttpOnly     controllers.CookieFlagsController.multipleNonHttpOnlyCookie()
+GET     /cookie/multHttpOnly        controllers.CookieFlagsController.multipleHttpOnlyCookie()
+GET     /cookie/safeHttpOnly        controllers.CookieFlagsController.safeHttpOnlyCookie()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

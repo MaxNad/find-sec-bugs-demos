@@ -2,7 +2,7 @@ package controllers
 
 import play.api.mvc.{Action, Controller, Cookie}
 
-class InsecureCookieController extends Controller {
+class CookieFlagsController extends Controller {
 
   def insecureCookie() = Action {
     Ok("Hello !").withCookies(Cookie("c1", "foo", secure = false))
@@ -17,7 +17,7 @@ class InsecureCookieController extends Controller {
 
   def multipleSecureCookies() = Action {
     Ok("Hello !").withCookies(
-      Cookie("c1", "foo", secure = false),
+      Cookie("c1", "foo", secure = false), // This must stay at line 20 - It has the .atLine annotation in the test
       Cookie("c1", "foo", secure = true)
     )
   }
@@ -34,7 +34,7 @@ class InsecureCookieController extends Controller {
 
   def multipleNonHttpOnlyCookie() = Action {
     Ok("Hello !").withCookies(
-      Cookie("c1", "foo", httpOnly = false),
+      Cookie("c1", "foo", httpOnly = false), // This must stay at line 37 - It has the .atLine annotation in the test
       Cookie("c1", "foo", httpOnly = false)
     )
   }
